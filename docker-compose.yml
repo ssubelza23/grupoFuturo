@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  users:
+    build:
+      context: ./services/users
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/users_db
+    depends_on:
+      - db
+
+  projects:
+    build:
+      context: ./services/projects
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/projects_db
+    depends_on:
+      - db
+
+  db:
+    image: postgis/postgis
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: main_db
+    ports:
+      - "5432:5432"

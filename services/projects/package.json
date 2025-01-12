@@ -1,0 +1,21 @@
+{
+  "name": "projects",
+  "version": "1.0.0",
+  "description": "Servicio de gestión de proyectos para el grupoFuturo",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "author": "Tu Nombre",
+  "license": "MIT"
+}
